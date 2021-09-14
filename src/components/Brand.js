@@ -6,7 +6,11 @@ const Brand = ({ classes, smallBrand }) => {
     textDecoration: "none",
   };
   return (
-    <Link style={linkStyle} to="/" className={`link navbar-brand ${classes}`}>
+    <Link
+      style={linkStyle}
+      to="/react-makeup-app/"
+      className={`link navbar-brand ${classes}`}
+    >
       Makeup
       <span className={`smallB d-block ${smallBrand}`}>BEAUTY</span>
     </Link>

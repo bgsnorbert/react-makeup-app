@@ -9,7 +9,7 @@ import ProductCard from "./ProductCard";
 
 const Product = () => {
   const { id } = useParams();
-  const baseURL = "http://makeup-api.herokuapp.com/api/v1/products";
+  const baseURL = "https://makeup-api.herokuapp.com/api/v1/products";
   const [product, setProduct] = useState([]);
   const [sameBrand, setSameBrand] = useState([]);
 
@@ -48,14 +48,22 @@ const Product = () => {
         <div className="col-12">
           {/* breadcrumb */}
           <span>
-            <Link className="text-secondary" style={linkStyle} to={"/"}>
+            <Link
+              className="text-secondary"
+              style={linkStyle}
+              to={"/react-makeup-app/"}
+            >
               Home
             </Link>
           </span>
           <span>
             {" "}
             /{" "}
-            <Link className="text-secondary" style={linkStyle} to={"/"}>
+            <Link
+              className="text-secondary"
+              style={linkStyle}
+              to={"/react-makeup-app/"}
+            >
               {product.product_type}
             </Link>
           </span>
@@ -115,7 +123,10 @@ const Product = () => {
             </div>
             <div className="col-4"></div>
             <div className="col-4 text-end">
-              <Link to={"/"} className="btn btn-warning rounded-pill px-4">
+              <Link
+                to={"/react-makeup-app/"}
+                className="btn btn-warning rounded-pill px-4"
+              >
                 add to basket
               </Link>
             </div>

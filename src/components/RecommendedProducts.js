@@ -9,7 +9,10 @@ const RecommendedProducts = () => {
           <h3 className="fw-bold">Recommended</h3>
         </div>
         <div className="col-sm-6 col-12 text-end">
-          <Link to={"/about"} className="btn btn-warning rounded-pill px-4">
+          <Link
+            to={"/react-makeup-app/about"}
+            className="btn btn-warning rounded-pill px-4"
+          >
             See more
           </Link>
         </div>

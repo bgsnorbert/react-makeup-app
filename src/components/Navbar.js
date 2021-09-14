@@ -30,7 +30,7 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link
                     style={linkStyle}
-                    to="/shop"
+                    to="/react-makeup-app/shop"
                     className="nav-link px-4 py-3 text-dark"
                   >
                     Shop
@@ -38,14 +38,17 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link px-4 py-3 text-dark" to="/search">
+                  <Link
+                    className="nav-link px-4 py-3 text-dark"
+                    to="/react-makeup-app/search"
+                  >
                     Search
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
                     style={linkStyle}
-                    to="/about"
+                    to="/react-makeup-app/about"
                     className="nav-link px-4 py-3 text-dark"
                   >
                     About

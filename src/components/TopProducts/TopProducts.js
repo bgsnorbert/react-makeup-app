@@ -5,7 +5,7 @@ import axios from "axios";
 import ProductCard from "../productCard/ProductCard";
 
 const TopProducts = () => {
-  const baseURL = "http://makeup-api.herokuapp.com/api/v1/products";
+  const baseURL = "https://makeup-api.herokuapp.com/api/v1/products";
   const [products, setProducts] = useState([]);
 
   const getTopProducts = async () => {
@@ -25,7 +25,10 @@ const TopProducts = () => {
           <h3 className="fw-bold">Top Products</h3>
         </div>
         <div className="col-6 text-end">
-          <Link to={"/about"} className="btn btn-warning rounded-pill px-4">
+          <Link
+            to={"/react-makeup-app/about"}
+            className="btn btn-warning rounded-pill px-4"
+          >
             See more
           </Link>
         </div>

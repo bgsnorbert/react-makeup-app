@@ -50,7 +50,7 @@ const Carousel = () => {
                     aliqua.
                   </p>
                   <Link
-                    to={"/about"}
+                    to={"/react-makeup-app/about"}
                     className="btn btn-warning rounded-pill px-4"
                   >
                     See more
@@ -79,7 +79,7 @@ const Carousel = () => {
                     aliqua.
                   </p>
                   <Link
-                    to={"/about"}
+                    to={"/react-makeup-app/about"}
                     className="btn btn-warning rounded-pill px-4"
                   >
                     See more
@@ -108,7 +108,7 @@ const Carousel = () => {
                     aliqua.
                   </p>
                   <Link
-                    to={"/about"}
+                    to={"/react-makeup-app/about"}
                     className="btn btn-warning rounded-pill px-4"
                   >
                     See more

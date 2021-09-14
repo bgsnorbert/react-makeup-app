@@ -9,7 +9,7 @@ const MidBanner = () => {
           <div className="smallBg">
             <h3 className="p-4">Natural and Bio, React, API, Object, Array</h3>
             <Link
-              to={"/about"}
+              to={"/react-makeup-app/about"}
               className="mx-4 btn btn-warning rounded-pill px-4"
             >
               See more
@@ -23,7 +23,7 @@ const MidBanner = () => {
                 Natural and Bio, React, API, Object, Array
               </h3>
               <Link
-                to={"/about"}
+                to={"/react-makeup-app/about"}
                 className="mx-4 btn btn-warning rounded-pill px-4"
               >
                 See more

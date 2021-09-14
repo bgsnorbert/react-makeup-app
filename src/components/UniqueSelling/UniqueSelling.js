@@ -15,7 +15,7 @@ const UniqueSelling = () => {
               </div>
               <div className="col-sm-8 col-12 text-sm-end">
                 <Link
-                  to={"/about"}
+                  to={"/react-makeup-app/about"}
                   className="mx-4 btn btn-warning rounded-pill px-4 m-4"
                 >
                   See more

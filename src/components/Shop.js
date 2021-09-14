@@ -11,7 +11,7 @@ const Shop = () => {
   };
 
   const [baseURL, setBaseURL] = useState(
-    "http://makeup-api.herokuapp.com/api/v1/products.json"
+    "https://makeup-api.herokuapp.com/api/v1/products.json"
   );
   const [items, setItems] = useState([]);
   // const [settings, setSettings] = useState({
@@ -34,10 +34,10 @@ const Shop = () => {
     const value = e.target.value;
     console.log(value);
     if (value === "All") {
-      setBaseURL("http://makeup-api.herokuapp.com/api/v1/products.json");
+      setBaseURL("https://makeup-api.herokuapp.com/api/v1/products.json");
     } else {
       setBaseURL(
-        `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${value}`
+        `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${value}`
       );
     }
     // const { name, value } = e.target;
