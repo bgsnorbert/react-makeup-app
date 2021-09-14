@@ -12,10 +12,10 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/shop" component={Shop} />
-        <Route exact path="/about" component={About} />
-        <Route path="/product/:id" component={Product} />
+        <Route exact path="/react-makeup-app/" component={Home} />
+        <Route exact path="/react-makeup-app/shop" component={Shop} />
+        <Route exact path="/react-makeup-app/about" component={About} />
+        <Route path="/react-makeup-app/product/:id" component={Product} />
       </Switch>
       <Footer />
     </Router>
