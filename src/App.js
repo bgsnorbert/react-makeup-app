@@ -12,7 +12,11 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/react-makeup-app/" component={Home} />
+        <Route
+          exact
+          path="https://bgsnorbert.github.io/react-makeup-app/"
+          component={Home}
+        />
         <Route exact path="/react-makeup-app/shop" component={Shop} />
         <Route exact path="/react-makeup-app/about" component={About} />
         <Route path="/react-makeup-app/product/:id" component={Product} />
