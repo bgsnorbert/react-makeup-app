@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-makeup-app/static/css/main.6f8c7975.chunk.css",
+    "main.js": "/react-makeup-app/static/js/main.25f6fa44.chunk.js",
+    "main.js.map": "/react-makeup-app/static/js/main.25f6fa44.chunk.js.map",
+    "runtime-main.js": "/react-makeup-app/static/js/runtime-main.6ff39b8d.js",
+    "runtime-main.js.map": "/react-makeup-app/static/js/runtime-main.6ff39b8d.js.map",
+    "static/js/2.7dcde60d.chunk.js": "/react-makeup-app/static/js/2.7dcde60d.chunk.js",
+    "static/js/2.7dcde60d.chunk.js.map": "/react-makeup-app/static/js/2.7dcde60d.chunk.js.map",
+    "static/js/3.c6afbd70.chunk.js": "/react-makeup-app/static/js/3.c6afbd70.chunk.js",
+    "static/js/3.c6afbd70.chunk.js.map": "/react-makeup-app/static/js/3.c6afbd70.chunk.js.map",
+    "index.html": "/react-makeup-app/index.html",
+    "static/css/main.6f8c7975.chunk.css.map": "/react-makeup-app/static/css/main.6f8c7975.chunk.css.map",
+    "static/js/2.7dcde60d.chunk.js.LICENSE.txt": "/react-makeup-app/static/js/2.7dcde60d.chunk.js.LICENSE.txt",
+    "static/media/pic1.42a26357.jpg": "/react-makeup-app/static/media/pic1.42a26357.jpg",
+    "static/media/index.css": "/react-makeup-app/static/media/pic4.d7397d36.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6ff39b8d.js",
+    "static/js/2.7dcde60d.chunk.js",
+    "static/css/main.6f8c7975.chunk.css",
+    "static/js/main.25f6fa44.chunk.js"
+  ]
+}
