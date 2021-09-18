@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ProductCard from "./productCard/ProductCard";
 import Spinner from "./Spinner";
+import brandAndCategory from "./brandAndCategory/brandAndCategory";
 
 const Shop = () => {
   const Style = {
@@ -11,9 +12,12 @@ const Shop = () => {
   };
 
   const [baseURL, setBaseURL] = useState(
-    "https://makeup-api.herokuapp.com/api/v1/products.json"
+    "https://makeup-api.herokuapp.com/api/v1/products.json?brand=mistura"
   );
   const [items, setItems] = useState([]);
+  const [sortItems, setSortItems] = useState("default");
+
+  // const [brandArray, setBrandArray] = useState([]);
   // const [settings, setSettings] = useState({
   //   minPrice: 0,
   //   maxPrice: 100,
@@ -31,6 +35,7 @@ const Shop = () => {
   }, [baseURL]);
 
   const handleChangeBrand = (e) => {
+    setItems([]);
     const value = e.target.value;
     console.log(value);
     if (value === "All") {
@@ -40,6 +45,7 @@ const Shop = () => {
         `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${value}`
       );
     }
+
     // const { name, value } = e.target;
 
     // setSettings((prevValue) => {
@@ -49,6 +55,33 @@ const Shop = () => {
     //   };
     // });
   };
+
+  const handleChangeSort = (e) => {
+    const value = e.target.value;
+
+    if (value === "priceL") {
+      setSortItems("priceL");
+      items.sort((a, b) => a.price - b.price);
+    } else if (value === "priceH") {
+      setSortItems("priceH");
+      items.sort((a, b) => b.price - a.price);
+    } else {
+      setSortItems("default");
+    }
+  };
+
+  console.log(sortItems);
+
+  // let uniqueBrandNames;
+  // if (items.length > 0) {
+  //   const newBrandArray = items.map((item) => {
+  //     return item.brand;
+  //   });
+  //   if (newBrandArray.length > 0) {
+  //     uniqueBrandNames = Array.from(new Set(newBrandArray));
+  //     console.log(uniqueBrandNames);
+  //   }
+  // }
 
   return (
     <div className="container">
@@ -107,11 +140,14 @@ const Shop = () => {
                 aria-label="Default select example"
               >
                 {/* remove duplicates */}
-
-                <option defaultValue>All</option>
-                {items.map((item) => {
+                <option></option>
+                <option>All</option>
+                {brandAndCategory.map((item, index) => {
                   return (
-                    <option key={`brand${item.id}`} value={item.brand}>
+                    <option
+                      key={`brand${item.brand + index}`}
+                      value={item.brand}
+                    >
                       {item.brand}
                     </option>
                   );
@@ -121,14 +157,14 @@ const Shop = () => {
             <div className="col-4">
               <h6>Sort by</h6>
               <select
-                // onChange={handleChange}
+                onChange={handleChangeSort}
                 name="sortBy"
                 className="form-select"
                 aria-label="Default select example"
               >
                 <option defaultValue>default</option>
-                {/* <option value="priceL">price low to high</option>
-                <option value="priceH">price high to low</option> */}
+                <option value="priceL">price low to high</option>
+                <option value="priceH">price high to low</option>
               </select>
               {/* <span>{settings.sortBy}</span> */}
             </div>
@@ -136,20 +172,57 @@ const Shop = () => {
           </div>
           <div className="row">
             {items.length > 0 ? (
-              items.map((item) => {
-                return (
-                  <div className="col-4" key={item.id}>
-                    <ProductCard
-                      img={item.api_featured_image}
-                      alt={item.name}
-                      title={item.name}
-                      description={item.brand}
-                      price={item.price}
-                      link={item.id}
-                    />
-                  </div>
-                );
-              })
+              sortItems === "priceL" ? (
+                items
+                  .sort((a, b) => a.price - b.price)
+                  .map((item) => {
+                    return (
+                      <div className="col-4" key={item.id}>
+                        <ProductCard
+                          img={item.api_featured_image}
+                          alt={item.name}
+                          title={item.name}
+                          description={item.brand}
+                          price={item.price}
+                          link={item.id}
+                        />
+                      </div>
+                    );
+                  })
+              ) : sortItems === "priceH" ? (
+                items
+                  .sort((a, b) => b.price - a.price)
+                  .map((item) => {
+                    return (
+                      <div className="col-4" key={item.id}>
+                        <ProductCard
+                          img={item.api_featured_image}
+                          alt={item.name}
+                          title={item.name}
+                          description={item.brand}
+                          price={item.price}
+                          link={item.id}
+                        />
+                      </div>
+                    );
+                  })
+              ) : (
+                sortItems === "default" &&
+                items.map((item) => {
+                  return (
+                    <div className="col-4" key={item.id}>
+                      <ProductCard
+                        img={item.api_featured_image}
+                        alt={item.name}
+                        title={item.name}
+                        description={item.brand}
+                        price={item.price}
+                        link={item.id}
+                      />
+                    </div>
+                  );
+                })
+              )
             ) : (
               <Spinner />
             )}

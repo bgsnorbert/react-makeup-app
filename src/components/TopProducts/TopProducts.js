@@ -7,16 +7,34 @@ import ProductCard from "../productCard/ProductCard";
 const TopProducts = () => {
   const baseURL = "https://makeup-api.herokuapp.com/api/v1/products";
   const [products, setProducts] = useState([]);
+  const [allBrand, setAllBrand] = useState([]);
 
   const getTopProducts = async () => {
     const request = await axios.get(`${baseURL}.json?product_tags=ecocert`);
     setProducts(request.data);
+    setAllBrand(
+      request.data.map((item) => {
+        return item.brand;
+      })
+    );
     console.log(request);
   };
+
+  if (allBrand.length > 0) {
+    console.log(`allbrand: ${allBrand}`);
+  }
 
   useEffect(() => {
     getTopProducts();
   }, []);
+
+  // if (products.length > 0) {
+  //   const newBrandArray = products.map((product) => {
+  //     return product.brand;
+  //   });
+  //   const uniqueNames = Array.from(new Set(newBrandArray));
+  //   console.log(`uniqnames: ${uniqueNames}`);
+  // }
 
   return (
     <div className="container">
