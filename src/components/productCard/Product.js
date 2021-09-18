@@ -82,11 +82,18 @@ const Product = () => {
             <HeartIcon /> add to favorites
           </div>
           <div className="col-12 mt-3 text-warning">
-            <h6 className="mb-0">{product.product_type}</h6>
+            <span className="text-secondary">type:</span>{" "}
+            <h6 className="mb-0 d-inline-block">{product.product_type}</h6>
           </div>
-          <div className="col-12">
-            <h4>{product.brand}</h4>
-            <h4>{product.name}</h4>
+          <div>
+            <div>
+              <span className="text-secondary">brand:</span>{" "}
+              <h4 className="d-inline-block">{product.brand}</h4>
+            </div>
+            <div>
+              <span className="text-secondary">name:</span>{" "}
+              <h4 className="d-inline-block">{product.name}</h4>
+            </div>
           </div>
           <div className="row my-3 mt-4 text-center justify-content-center">
             <h5 className="text-secondary">Colors:</h5>
@@ -118,14 +125,14 @@ const Product = () => {
             {/* </div> */}
           </div>
           <div className="row mt-5">
-            <div className="col-4">
+            <div className="col-6">
               <h4>{`${product.price}`}&euro;</h4>
             </div>
-            <div className="col-4"></div>
-            <div className="col-4 text-end">
+
+            <div className="col-6 text-end">
               <Link
                 to={"/react-makeup-app/"}
-                className="btn btn-warning rounded-pill px-4"
+                className="btn btn-warning rounded-pill px-md-4"
               >
                 add to basket
               </Link>
@@ -135,13 +142,17 @@ const Product = () => {
         </div>
         <div className="row " style={{ minHeight: "50vh" }}>
           <div className="col-12">
-            <h3 className="text-center my-5">Recommended</h3>
+            <h3 className="text-center my-5 pt-5">Recommended</h3>
           </div>
           {sameBrand.length > 0 ? (
-            sameBrand.slice(0, 6).map((res) => {
+            sameBrand.slice(0, 8).map((res) => {
               return (
-                <div className="col-4" key={`recommended${res.id}`}>
+                <div
+                  className="col-lg-3 col-md-4 col-sm-6 col-12"
+                  key={`recommended${res.id}`}
+                >
                   <ProductCard
+                    width="12rem"
                     img={res.api_featured_image}
                     title={res.name}
                     description={res.brand}

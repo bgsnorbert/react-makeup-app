@@ -12,7 +12,7 @@ const Shop = () => {
   };
 
   const [baseURL, setBaseURL] = useState(
-    "https://makeup-api.herokuapp.com/api/v1/products.json?brand=mistura"
+    "https://makeup-api.herokuapp.com/api/v1/products.json?brand=annabelle"
   );
   const [items, setItems] = useState([]);
   const [sortItems, setSortItems] = useState("default");
@@ -87,7 +87,7 @@ const Shop = () => {
     <div className="container">
       <div className="row shopTopBg my-5"></div>
       <div className="row my-5">
-        <div className="col-2 p-3" style={Style.inputBg}>
+        <div className="col-sm-2 col-12 p-3" style={Style.inputBg}>
           <div className="row">
             <h6 className="mb-3">Select price</h6>
 
@@ -129,9 +129,9 @@ const Shop = () => {
             </div>
           </div>
         </div>
-        <div className="col-10 pt-3">
+        <div className="col-sm-10 col-12 pt-3">
           <div className="row">
-            <div className="col-4">
+            <div className="col-sm-6 col-12">
               <h6>Brands</h6>
               <select
                 onChange={handleChangeBrand}
@@ -154,7 +154,7 @@ const Shop = () => {
                 })}
               </select>
             </div>
-            <div className="col-4">
+            <div className="col-sm-6 col-12">
               <h6>Sort by</h6>
               <select
                 onChange={handleChangeSort}
@@ -177,8 +177,12 @@ const Shop = () => {
                   .sort((a, b) => a.price - b.price)
                   .map((item) => {
                     return (
-                      <div className="col-4" key={item.id}>
+                      <div
+                        className="col-lg-3 col-md-4 col-sm-6 col-12"
+                        key={item.id}
+                      >
                         <ProductCard
+                          width="10rem"
                           img={item.api_featured_image}
                           alt={item.name}
                           title={item.name}
@@ -194,8 +198,12 @@ const Shop = () => {
                   .sort((a, b) => b.price - a.price)
                   .map((item) => {
                     return (
-                      <div className="col-4" key={item.id}>
+                      <div
+                        className="col-lg-3 col-md-4 col-sm-6 col-12"
+                        key={item.id}
+                      >
                         <ProductCard
+                          width="10rem"
                           img={item.api_featured_image}
                           alt={item.name}
                           title={item.name}
@@ -210,8 +218,12 @@ const Shop = () => {
                 sortItems === "default" &&
                 items.map((item) => {
                   return (
-                    <div className="col-4" key={item.id}>
+                    <div
+                      className="col-lg-3 col-md-4 col-sm-6 col-12"
+                      key={item.id}
+                    >
                       <ProductCard
+                        width="10rem"
                         img={item.api_featured_image}
                         alt={item.name}
                         title={item.name}

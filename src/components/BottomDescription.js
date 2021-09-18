@@ -8,7 +8,7 @@ const BottomDescription = () => {
           <div className="bDescriptionBg"></div>
         </div>
         <div className="col-12 col-md-6 px-5">
-          <h3>Clean code what you deserv.</h3>
+          <h3>Duis aute irure dolor</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

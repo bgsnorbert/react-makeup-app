@@ -55,6 +55,7 @@ const TopProducts = () => {
             {products.map((product) => {
               return (
                 <ProductCard
+                  width="14rem"
                   link={product.id}
                   key={product.id}
                   img={product.api_featured_image}

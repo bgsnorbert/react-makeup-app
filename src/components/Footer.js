@@ -7,9 +7,9 @@ import TIcon from "./Icons/TIcon";
 const Footer = () => {
   const date = new Date().getFullYear();
 
-  const FooterContent = () => {
+  const FooterContent = ({ classes }) => {
     return (
-      <div className="col-2 my-auto">
+      <div className={classes}>
         <ul className="mb-0 footerUl d-flex flex-column">
           <li className="fw-bold">Title</li>
           <li>News</li>
@@ -27,16 +27,28 @@ const Footer = () => {
         <footer className="text-light pt-5 pb-4">
           <div className="container">
             <div className="row mx-auto">
-              <div className="col-2">
+              <div className="col-md-2 col-6">
                 <Brand classes="text-warning text-center d-block " />
               </div>
 
-              <FooterContent footerClasses="flex-column" />
-              <FooterContent footerClasses="flex-column" />
-              <FooterContent footerClasses="flex-column" />
-              <FooterContent footerClasses="flex-column" />
+              <FooterContent
+                classes="col-md-2 col-6 col-6 my-auto"
+                footerClasses="flex-column"
+              />
+              <FooterContent
+                classes="col-md-2 col-6 col-6 my-auto"
+                footerClasses="flex-column"
+              />
+              <FooterContent
+                classes="col-md-2 col-6 col-6 my-auto"
+                footerClasses="flex-column"
+              />
+              <FooterContent
+                classes="col-md-2 col-6 col-6 my-auto"
+                footerClasses="flex-column"
+              />
 
-              <div className="col-2 my-auto">
+              <div className="col-6 col-md-2 my-auto">
                 <ul className="ps-0 mb-0 footerUl d-flex flex-column-reverse ">
                   <li className="p-3 text-warning text-start">
                     <FIcon />

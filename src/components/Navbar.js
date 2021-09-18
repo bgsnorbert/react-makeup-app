@@ -58,7 +58,7 @@ const Navbar = () => {
                 <li className="nav-item ms-4 px-3 py-3">
                   <HeartIcon />
                 </li>
-                <li className="nav-item px-3 py-3">
+                <li className="nav-item ms-md-0 ms-4 px-3 py-3">
                   <CartIcon />
                 </li>
               </ul>
