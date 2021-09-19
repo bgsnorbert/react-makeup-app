@@ -32,14 +32,7 @@ footer {
 /* *** End *** */
 .carouselSlideBtn {
   background-color: #ffc107 !important;
-  /* border-radius: 50%;
-  padding: 20px !important;
-  margin: 0 10px !important; */
-  /* opacity: 0.8 !important; */
 }
-/* .carousel-indicators {
-  margin-top: 220px !important;
-} */
 
 #carouselExampleIndicators {
   margin-bottom: 80px;
@@ -84,7 +77,6 @@ footer {
 /***** productCard *****/
 
 .productCard {
-  /* width: 16rem; */
   border: none;
 }
 

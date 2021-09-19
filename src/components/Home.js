@@ -1,6 +1,6 @@
 import React from "react";
 import MidBanner from "./Banners/MidBanner";
-import Carousel from "./Carousel";
+import Carousel from "./Carousel/Carousel";
 import TopProducts from "./TopProducts/TopProducts";
 import UniqueSelling from "./UniqueSelling/UniqueSelling";
 import RecommendedProducts from "./RecommendedProducts";

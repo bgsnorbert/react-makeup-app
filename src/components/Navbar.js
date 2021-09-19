@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 import HeartIcon from "./Icons/HeartIcon";
 import CartIcon from "./Icons/CartIcon";
 
+const NavItem = ({ linkStyle, linkRoute, navItemValue }) => (
+  <li className="nav-item">
+    <Link
+      style={linkStyle}
+      to={linkRoute}
+      className="nav-link px-4 py-3 text-dark"
+    >
+      {navItemValue}
+    </Link>
+  </li>
+);
 const Navbar = () => {
   const linkStyle = {
     textDecoration: "none",
@@ -27,34 +38,21 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <Link
-                    style={linkStyle}
-                    to="/react-makeup-app/shop"
-                    className="nav-link px-4 py-3 text-dark"
-                  >
-                    Shop
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link
-                    className="nav-link px-4 py-3 text-dark"
-                    to="/react-makeup-app/search"
-                  >
-                    Search
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    style={linkStyle}
-                    to="/react-makeup-app/about"
-                    className="nav-link px-4 py-3 text-dark"
-                  >
-                    About
-                  </Link>
-                </li>
-
+                <NavItem
+                  linkStyle={linkStyle}
+                  linkRoute="/react-makeup-app/shop"
+                  navItemValue="Shop"
+                />
+                <NavItem
+                  linkStyle={linkStyle}
+                  linkRoute="/react-makeup-app/search"
+                  navItemValue="Search"
+                />
+                <NavItem
+                  linkStyle={linkStyle}
+                  linkRoute="/react-makeup-app/about"
+                  navItemValue="About"
+                />
                 <li className="nav-item ms-4 px-3 py-3">
                   <HeartIcon />
                 </li>

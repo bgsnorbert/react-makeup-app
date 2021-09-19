@@ -1,9 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
-import ProductCard from "./productCard/ProductCard";
-import Spinner from "./Spinner";
-import brandAndCategory from "./brandAndCategory/brandAndCategory";
+import Spinner from "../Spinner";
+import brandAndCategory from "../brandAndCategory/brandAndCategory";
+import handleSortByPrice from "./sortByPrice";
 
 const Shop = () => {
   const Style = {
@@ -17,14 +17,6 @@ const Shop = () => {
   const [items, setItems] = useState([]);
   const [sortItems, setSortItems] = useState("default");
 
-  // const [brandArray, setBrandArray] = useState([]);
-  // const [settings, setSettings] = useState({
-  //   minPrice: 0,
-  //   maxPrice: 100,
-  //   selectBrand: "",
-  //   sortBy: "",
-  // });
-
   useEffect(() => {
     const getItems = async () => {
       const request = await axios.get(baseURL);
@@ -37,7 +29,6 @@ const Shop = () => {
   const handleChangeBrand = (e) => {
     setItems([]);
     const value = e.target.value;
-    console.log(value);
     if (value === "All") {
       setBaseURL("https://makeup-api.herokuapp.com/api/v1/products.json");
     } else {
@@ -45,43 +36,18 @@ const Shop = () => {
         `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${value}`
       );
     }
-
-    // const { name, value } = e.target;
-
-    // setSettings((prevValue) => {
-    //   return {
-    //     ...prevValue,
-    //     [name]: value,
-    //   };
-    // });
   };
 
   const handleChangeSort = (e) => {
     const value = e.target.value;
-
     if (value === "priceL") {
       setSortItems("priceL");
-      items.sort((a, b) => a.price - b.price);
     } else if (value === "priceH") {
       setSortItems("priceH");
-      items.sort((a, b) => b.price - a.price);
     } else {
       setSortItems("default");
     }
   };
-
-  console.log(sortItems);
-
-  // let uniqueBrandNames;
-  // if (items.length > 0) {
-  //   const newBrandArray = items.map((item) => {
-  //     return item.brand;
-  //   });
-  //   if (newBrandArray.length > 0) {
-  //     uniqueBrandNames = Array.from(new Set(newBrandArray));
-  //     console.log(uniqueBrandNames);
-  //   }
-  // }
 
   return (
     <div className="container">
@@ -92,27 +58,23 @@ const Shop = () => {
             <h6 className="mb-3">Select price</h6>
 
             <div className="col-6">
-              {/* <span>{settings.minPrice}</span> */}
               <input
                 disabled
                 // onChange={handleChange}
                 name="minPrice"
                 className="mx-auto d-block"
                 style={Style.input}
-                // value={settings.minPrice}
                 type="number"
               />
               <span className="text-secondary text-center d-block">min.</span>
             </div>
             <div className="col-6">
-              {/* <span>{settings.maxPrice}</span> */}
               <input
                 disabled
                 // onChange={handleChange}
                 name="maxPrice"
                 className="mx-auto d-block"
                 style={Style.input}
-                // value={settings.maxPrice}
                 type="number"
               />
               <span className="text-secondary text-center d-block">max.</span>
@@ -121,9 +83,8 @@ const Shop = () => {
           <div className="row">
             <div className="col-12">
               <ul>
-                {/* remove duplicates */}
-                {/* {items.map((item) => {
-                  return <li>{item.product_type}</li>;
+                {/* {items.map((item, index) => {
+                  return <li key={index}>{item.product_type}</li>;
                 })} */}
               </ul>
             </div>
@@ -139,7 +100,6 @@ const Shop = () => {
                 className="form-select"
                 aria-label="Default select example"
               >
-                {/* remove duplicates */}
                 <option></option>
                 <option>All</option>
                 {brandAndCategory.map((item, index) => {
@@ -173,67 +133,11 @@ const Shop = () => {
           <div className="row">
             {items.length > 0 ? (
               sortItems === "priceL" ? (
-                items
-                  .sort((a, b) => a.price - b.price)
-                  .map((item) => {
-                    return (
-                      <div
-                        className="col-lg-3 col-md-4 col-sm-6 col-12"
-                        key={item.id}
-                      >
-                        <ProductCard
-                          width="10rem"
-                          img={item.api_featured_image}
-                          alt={item.name}
-                          title={item.name}
-                          description={item.brand}
-                          price={item.price}
-                          link={item.id}
-                        />
-                      </div>
-                    );
-                  })
+                handleSortByPrice(items.sort((a, b) => a.price - b.price))
               ) : sortItems === "priceH" ? (
-                items
-                  .sort((a, b) => b.price - a.price)
-                  .map((item) => {
-                    return (
-                      <div
-                        className="col-lg-3 col-md-4 col-sm-6 col-12"
-                        key={item.id}
-                      >
-                        <ProductCard
-                          width="10rem"
-                          img={item.api_featured_image}
-                          alt={item.name}
-                          title={item.name}
-                          description={item.brand}
-                          price={item.price}
-                          link={item.id}
-                        />
-                      </div>
-                    );
-                  })
+                handleSortByPrice(items.sort((a, b) => b.price - a.price))
               ) : (
-                sortItems === "default" &&
-                items.map((item) => {
-                  return (
-                    <div
-                      className="col-lg-3 col-md-4 col-sm-6 col-12"
-                      key={item.id}
-                    >
-                      <ProductCard
-                        width="10rem"
-                        img={item.api_featured_image}
-                        alt={item.name}
-                        title={item.name}
-                        description={item.brand}
-                        price={item.price}
-                        link={item.id}
-                      />
-                    </div>
-                  );
-                })
+                handleSortByPrice(items)
               )
             ) : (
               <Spinner />
